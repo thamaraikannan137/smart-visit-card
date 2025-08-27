@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Customer } from "../../types/customer.type";
 import { BUTTON_LABELS, TITLES } from "../../constants";
 import "./customerTable.style.css";
+import { useNavigate } from "react-router-dom";
 
 interface CustomerTableProps {
   customers: Customer[];
@@ -15,21 +16,15 @@ const CustomerTable: React.FC<CustomerTableProps> = ({
   onDeleteCustomer,
   onEditCustomer
 }) => {
-  const [isViewModalOpen, setIsViewModalOpen] = useState(false);
-  const [selectedCustomer, setSelectedCustomer] = useState<Customer | undefined>();
+  const navigate = useNavigate();
   const handleViewCustomer = (customer: Customer) => {
-    setIsViewModalOpen(true);
-    setSelectedCustomer(customer);
+    navigate(`/page/${customer.id}`);
   };
 
   const handleDeleteCustomer = (customerId: string) => {
     onDeleteCustomer(customerId);
   };
 
-  const handleCloseModal = () => {
-    setIsViewModalOpen(false);
-    setSelectedCustomer(undefined);
-  };
 
   const handleEditCustomer = (customer: Customer) => {
     onEditCustomer(customer);
@@ -104,53 +99,6 @@ const CustomerTable: React.FC<CustomerTableProps> = ({
           ))}
         </tbody>
       </table>
-      {isViewModalOpen && selectedCustomer && (
-        <div className="modal-overlay" onClick={handleCloseModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-header">
-              <h2>Customer Details</h2>
-              <button className="close-button" onClick={handleCloseModal}>
-                {BUTTON_LABELS.CLOSE}
-              </button>
-            </div>
-            <div className="modal-body">
-              <div className="detail-row">
-                <strong>Name:</strong> {selectedCustomer.name}
-              </div>
-              <div className="detail-row">
-                <strong>Email:</strong> {selectedCustomer.email}
-              </div>
-              <div className="detail-row">
-                <strong>Phone:</strong> {selectedCustomer.phoneNumber}
-              </div>
-              <div className="detail-row">
-                <strong>WhatsApp:</strong> {selectedCustomer.whatsappNumber}
-              </div>
-              <div className="detail-row">
-                <strong>Website:</strong> 
-                {selectedCustomer.websiteUrl ? (
-                  <a href={selectedCustomer.websiteUrl} target="_blank" rel="noopener noreferrer">
-                    {selectedCustomer.websiteUrl}
-                  </a>
-                ) : (
-                  'Not provided'
-                )}
-              </div>
-              <div className="detail-row">
-                <strong>Company Logo:</strong>
-                {selectedCustomer.companyLogo ? (
-                  <img src={selectedCustomer.companyLogo} alt="Company Logo" className="modal-logo" />
-                ) : (
-                  'No logo provided'
-                )}
-              </div>
-              <div className="detail-row">
-                <strong>Description:</strong> {selectedCustomer.description}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

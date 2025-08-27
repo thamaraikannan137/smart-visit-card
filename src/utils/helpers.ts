@@ -22,8 +22,8 @@ export const isValidEmail = (email: string): boolean => {
  * @returns boolean - True if valid phone format
  */
 export const isValidPhone = (phone: string): boolean => {
-  const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
-  return phoneRegex.test(phone.replace(/[\s\-\(\)]/g, ''));
+  const phoneRegex = /^[+]?[1-9][\d]{0,15}$/;
+  return phoneRegex.test(phone.replace(/[\s\-()]/g, ''));
 };
 
 /**
@@ -38,6 +38,26 @@ export const isValidUrl = (url: string): boolean => {
   } catch {
     return false;
   }
+};
+
+/**
+ * Normalizes URL by adding protocol if missing
+ * @param url - URL to normalize
+ * @returns string - Normalized URL with protocol
+ */
+export const normalizeUrl = (url: string): string => {
+  if (!url) return '';
+  
+  // Remove any extra spaces
+  const cleanUrl = url.trim();
+  
+  // If already has protocol, return as is
+  if (cleanUrl.startsWith('http://') || cleanUrl.startsWith('https://')) {
+    return cleanUrl;
+  }
+  
+  // Add https:// as default protocol
+  return `https://${cleanUrl}`;
 };
 
 /**

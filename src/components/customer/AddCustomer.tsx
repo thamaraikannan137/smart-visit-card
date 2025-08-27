@@ -2,7 +2,7 @@ import React from "react";
 import { useForm, FieldValues } from "react-hook-form";
 import { Customer } from "../../types/customer.type";
 import { FORM_FIELDS, FORM_LABELS, BUTTON_LABELS, TITLES } from "../../constants";
-import { generateCustomerId } from "../../utils/helpers";
+import { generateCustomerId, normalizeUrl } from "../../utils/helpers";
 import FormField from "../shared/FormField";
 import "../shared/Form.css";
 
@@ -19,8 +19,8 @@ const AddCustomer: React.FC<AddCustomerProps> = ({ onBack, onAddCustomer }) => {
       email: formData[FORM_FIELDS.EMAIL] || '',
       phoneNumber: formData[FORM_FIELDS.PHONE_NUMBER] || '',
       whatsappNumber: formData[FORM_FIELDS.WHATSAPP_NUMBER] || '',
-      websiteUrl: formData[FORM_FIELDS.WEBSITE_URL] || '',
-      companyLogo: formData[FORM_FIELDS.COMPANY_LOGO] || '',
+      websiteUrl: normalizeUrl(formData[FORM_FIELDS.WEBSITE_URL] || ''),
+      companyLogo: normalizeUrl(formData[FORM_FIELDS.COMPANY_LOGO] || ''),
       description: formData[FORM_FIELDS.DESCRIPTION] || ''
     };
     onAddCustomer(newCustomer);
@@ -61,7 +61,7 @@ const AddCustomer: React.FC<AddCustomerProps> = ({ onBack, onAddCustomer }) => {
           label={FORM_LABELS.WEBSITE_URL}
           name={FORM_FIELDS.WEBSITE_URL}
           type="url"
-          placeholder="https://example.com"
+          placeholder="www.example.com or https://example.com"
           register={register}
         />
         <FormField

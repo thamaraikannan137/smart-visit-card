@@ -32,5 +32,25 @@ export const TITLES = {
     ADD_CUSTOMER: 'Add Customer',
     EDIT_CUSTOMER: 'Edit Customer',
     CUSTOMER_LIST: 'Customer List',
-    CUSTOMER_TABLE: 'Customer Table'
+    CUSTOMER_TABLE: 'Customer Table',
+    CUSTOMER_DETAILS: 'Customer Details'
+} as const;
+
+export const DETAIL_LABELS = {
+    NAME: 'Name:',
+    EMAIL: 'Email:',
+    PHONE: 'Phone:',
+    WHATSAPP: 'WhatsApp:',
+    WEBSITE: 'Website:',
+    COMPANY_LOGO: 'Company Logo:',
+    DESCRIPTION: 'Description:'
+} as const;
+
+export const MESSAGES = {
+    LOADING: 'Loading customer details...',
+    PAGE_NOT_FOUND: 'Page not found',
+    LOAD_ERROR: 'Failed to load customer details',
+    NOT_PROVIDED: 'Not provided',
+    NO_LOGO: 'No logo provided',
+    ERROR_TITLE: 'Error'
 } as const;

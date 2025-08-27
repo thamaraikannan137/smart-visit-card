@@ -93,6 +93,76 @@
   background-color: #545b62;
 }
 
+/* Form Header Styles */
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.form-header h1 {
+  margin: 0;
+}
+
+/* Customer Details Styles */
+.customer-details-container {
+  margin-top: 20px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 12px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  border-left: 3px solid #007bff;
+}
+
+.detail-item strong {
+  min-width: 120px;
+  color: #495057;
+  font-weight: 600;
+}
+
+.detail-item span {
+  flex: 1;
+  color: #212529;
+}
+
+.website-link {
+  color: #007bff;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.website-link:hover {
+  text-decoration: underline;
+}
+
+.customer-logo {
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: contain;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.error-message {
+  color: #dc3545;
+  text-align: center;
+  padding: 20px;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .customer-form {
@@ -106,5 +176,19 @@
   
   .form-button {
     width: 100%;
+  }
+
+  .detail-item {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .detail-item strong {
+    min-width: auto;
+  }
+
+  .customer-logo {
+    max-width: 150px;
+    max-height: 150px;
   }
 }
