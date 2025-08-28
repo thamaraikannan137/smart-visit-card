@@ -4,6 +4,7 @@ import { Customer } from "../../types/customer.type";
 import { initialCustomers } from "../../utils/customerData";
 import { TITLES, DETAIL_LABELS, MESSAGES, BUTTON_LABELS } from "../../constants";
 import "../shared/Form.css";
+import Button from '@mui/material/Button'
 
 const CustomerDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -53,15 +54,15 @@ const CustomerDetails: React.FC = () => {
   if (error) {
     return (
       <div className="customer-form">
-        <h1>{MESSAGES.ERROR_TITLE}</h1>
+        <h1 className="text-3xl font-bold underline">{MESSAGES.ERROR_TITLE}</h1>
         <p className="error-message">{error}</p>
-        <div className="form-buttons">
-          <button 
+        <div >
+          <Button 
             onClick={handleBackToList}
-            className="form-button secondary"
+            variant="outlined"
           >
             {BUTTON_LABELS.BACK}
-          </button>
+          </Button>
         </div>
       </div>
     );
@@ -70,7 +71,7 @@ const CustomerDetails: React.FC = () => {
   return (
     <div className="customer-form">
       <div className="form-header">
-        <h1>{TITLES.CUSTOMER_DETAILS}</h1>
+        <h1 className="text-3xl font-bold underline">{TITLES.CUSTOMER_DETAILS}</h1>
         <button 
           onClick={handleBackToList}
           className="form-button secondary"
