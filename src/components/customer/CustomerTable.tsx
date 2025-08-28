@@ -55,12 +55,12 @@ const CustomerTable: React.FC<CustomerTableProps> = ({
           {customers.map((customer: Customer) => (
             <tr key={customer.id}>
               <td>{customer.name}</td>
-              <td>{customer.email}</td>
-              <td>{customer.phoneNumber}</td>
-              <td>{customer.whatsappNumber}</td>
+              <td>{customer.emails?.[0] || 'N/A'}</td>
+              <td>{customer.phoneNumbers?.[0] || 'N/A'}</td>
+              <td>{customer.whatsappNumbers?.[0] || 'N/A'}</td>
               <td>
-                {customer.websiteUrl ? (
-                  <a href={customer.websiteUrl} target="_blank" rel="noopener noreferrer">
+                {customer.websiteUrls?.[0] ? (
+                  <a href={customer.websiteUrls[0]} target="_blank" rel="noopener noreferrer">
                     Visit
                   </a>
                 ) : (

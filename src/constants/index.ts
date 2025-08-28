@@ -1,21 +1,29 @@
 export const FORM_FIELDS = {
     NAME: 'name',
-    EMAIL: 'email',
-    PHONE_NUMBER: 'phoneNumber',
-    WHATSAPP_NUMBER: 'whatsappNumber',
-    WEBSITE_URL: 'websiteUrl',
+    EMAILS: 'emails',
+    PHONE_NUMBERS: 'phoneNumbers',
+    WHATSAPP_NUMBERS: 'whatsappNumbers',
+    WEBSITE_URLS: 'websiteUrls',
     COMPANY_LOGO: 'companyLogo',
-    DESCRIPTION: 'description'
+    DESCRIPTION: 'description',
+    FACEBOOK_URLS: 'facebookUrls',
+    INSTAGRAM_URLS: 'instagramUrls',
+    YOUTUBE_URLS: 'youtubeUrls',
+    LOCATION_URLS: 'locationUrls'
 } as const;
 
 export const FORM_LABELS = {
     NAME: 'Customer Name',
-    EMAIL: 'Email',
-    PHONE_NUMBER: 'Phone Number',
-    WHATSAPP_NUMBER: 'WhatsApp Number',
-    WEBSITE_URL: 'Website URL',
+    EMAILS: 'Email Addresses',
+    PHONE_NUMBERS: 'Phone Numbers',
+    WHATSAPP_NUMBERS: 'WhatsApp Numbers',
+    WEBSITE_URLS: 'Website URLs',
     COMPANY_LOGO: 'Company Logo',
-    DESCRIPTION: 'Description'
+    DESCRIPTION: 'Description',
+    FACEBOOK_URLS: 'Facebook URLs',
+    INSTAGRAM_URLS: 'Instagram URLs',
+    YOUTUBE_URLS: 'YouTube URLs',
+    LOCATION_URLS: 'Location URLs'
 } as const;
 
 export const BUTTON_LABELS = {
@@ -38,12 +46,16 @@ export const TITLES = {
 
 export const DETAIL_LABELS = {
     NAME: 'Name:',
-    EMAIL: 'Email:',
-    PHONE: 'Phone:',
-    WHATSAPP: 'WhatsApp:',
-    WEBSITE: 'Website:',
+    EMAIL: 'Email',
+    PHONE: 'Phone',
+    WHATSAPP: 'WhatsApp',
+    WEBSITE: 'Website',
     COMPANY_LOGO: 'Company Logo:',
-    DESCRIPTION: 'Description:'
+    DESCRIPTION: 'Description:',
+    FACEBOOK: 'Facebook',
+    INSTAGRAM: 'Instagram',
+    YOUTUBE: 'YouTube',
+    LOCATION: 'Location'
 } as const;
 
 export const MESSAGES = {

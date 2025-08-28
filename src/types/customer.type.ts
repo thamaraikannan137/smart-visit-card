@@ -1,17 +1,47 @@
 export interface Customer {
     id: string;
     name: string;
-    email: string;
-    phoneNumber: string;
-    whatsappNumber: string;
-    websiteUrl: string;
+    emails: string[];
+    phoneNumbers: string[];
+    whatsappNumbers: string[];
+    websiteUrls: string[];
     companyLogo: string;
     description: string;
+    facebookUrls?: string[];
+    instagramUrls?: string[];
+    youtubeUrls?: string[];
+    locationUrls?: string[];
+    createdAt?: Date;
+    updatedAt?: Date;
 }
-//  facebook_link: string,
-//     instagram_link: string,
-//     youtube_link: string,
-//     location_link: string,
+
+// API Response types
+export interface ApiResponse<T> {
+    success: boolean;
+    message: string;
+    data: T;
+}
+
+export interface CustomersListResponse {
+    customers: Customer[];
+    total: number;
+    page: number;
+    pages: number;
+}
+
+export interface CustomerCreateRequest {
+    name: string;
+    emails: string[];
+    phoneNumbers: string[];
+    whatsappNumbers: string[];
+    websiteUrls: string[];
+    companyLogo: string;
+    description: string;
+    facebookUrls?: string[];
+    instagramUrls?: string[];
+    youtubeUrls?: string[];
+    locationUrls?: string[];
+}
 export enum CustomerActionType {
     ADD = "ADD_CUSTOMER",
     LIST = "CUSTOMER_LIST",
@@ -20,10 +50,14 @@ export enum CustomerActionType {
 
 export interface CustomerFormData {
     name: string;
-    email: string;
-    phoneNumber: string;
-    whatsappNumber: string;
-    websiteUrl: string;
+    emails: string[];
+    phoneNumbers: string[];
+    whatsappNumbers: string[];
+    websiteUrls: string[];
     companyLogo: string;
     description: string;
+    facebookUrls?: string[];
+    instagramUrls?: string[];
+    youtubeUrls?: string[];
+    locationUrls?: string[];
 }
